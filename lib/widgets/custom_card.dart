@@ -12,7 +12,7 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 240,
+      height: 245,
       width: 150,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
@@ -21,30 +21,30 @@ class CustomCard extends StatelessWidget {
           )
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Stack(
             children: [
               //Cover Photo
-              Column(
-                children: [
-                  Image.asset(
-                    coverImg,
-                    // fit: BoxFit.fill,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                ],
+              ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(15),
+                  topRight: Radius.circular(15),
+                ),
+                child: Image.asset(
+                  coverImg,
+                  height: 120, // Adjust height based on your layout
+                  width: double.infinity,
+                  fit: BoxFit.cover, // Ensures the image covers the area
+                ),
               ),
 
               //Profile Photo
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                padding: const EdgeInsets.only(top: 35.0),
                 child: Center(
                   child: CircleAvatar(
-                    radius: 45,
+                    radius: 50,
                     backgroundImage: AssetImage(
                       imgPath,
                     ),
@@ -100,6 +100,8 @@ class CustomCard extends StatelessWidget {
               onPress: (){},
             ),
           ),
+
+          const SizedBox(height: 5,)
         ],
       ),
     );

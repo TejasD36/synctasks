@@ -25,7 +25,7 @@ class _Task1State extends State<Task1> {
             crossAxisCount: 2,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
-            childAspectRatio: 0.75,
+            childAspectRatio: 0.70,
           ),
           itemBuilder: (context, index) {
             return CustomCard(
