@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:synctasks/widgets/custom_button.dart';
+import 'package:synctasks/consts/strings.dart';
 import 'package:synctasks/widgets/custom_card.dart';
 
 class Task1 extends StatefulWidget {
@@ -19,7 +19,7 @@ class _Task1State extends State<Task1> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: GridView.builder(
-          itemCount: 9,
+          itemCount: nameList.length,
           shrinkWrap: true,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -28,7 +28,11 @@ class _Task1State extends State<Task1> {
             childAspectRatio: 0.75,
           ),
           itemBuilder: (context, index) {
-            return const CustomCard(); // Displaying the CustomCard widget
+            return CustomCard(
+              title: nameList[index],
+              imgPath: imgList[index],
+              coverImg: coverImg,
+            ); // Displaying the CustomCard widget
           },
         ),
       ),

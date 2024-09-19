@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'custom_button.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({super.key});
+  final String title;
+  final String imgPath;
+  final String coverImg;
+
+  const CustomCard({super.key, required this.title,required this.imgPath,required this.coverImg});
 
   @override
   Widget build(BuildContext context) {
@@ -16,84 +20,87 @@ class CustomCard extends StatelessWidget {
               color: Colors.grey
           )
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(5.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Stack(
-              children: [
-                //Cover Photo
-                Column(
-                  children: [
-                    Image.asset(
-                      "assets/cover.png",
-                      // fit: BoxFit.fill,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                  ],
-                ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Stack(
+            children: [
+              //Cover Photo
+              Column(
+                children: [
+                  Image.asset(
+                    coverImg,
+                    // fit: BoxFit.fill,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                ],
+              ),
 
-                //Profile Photo
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10.0),
-                  child: Center(
-                    child: CircleAvatar(
-                      radius: 45,
-                      backgroundImage: AssetImage(
-                        "assets/logo1.png",
-                      ), // This will make the image circular
+              //Profile Photo
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: Center(
+                  child: CircleAvatar(
+                    radius: 45,
+                    backgroundImage: AssetImage(
+                      imgPath,
                     ),
                   ),
                 ),
+              ),
 
-                //Close Button
-                Positioned(
-                  top: 5,
-                  right: 5,
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: CircleAvatar(
-                      radius: 10,
-                      backgroundColor: Colors.black.withOpacity(0.6), // Transparent black background
-                      child: const Icon(
-                        Icons.close,
-                        color: Colors.white,
-                        size: 10,
-                      ),
+              //Close Button
+              Positioned(
+                top: 5,
+                right: 5,
+                child: GestureDetector(
+                  onTap: () {},
+                  child: CircleAvatar(
+                    radius: 10,
+                    backgroundColor: Colors.black.withOpacity(0.6), // Transparent black background
+                    child: const Icon(
+                      Icons.close,
+                      color: Colors.white,
+                      size: 10,
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
+          ),
 
-            //Title
-            const Text(
-              "Title 1",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          //Title
+          Padding(
+            padding:const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+              title,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
+          ),
 
-            //Description
-            const Center(
+          //Description
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.0),
+            child: Center(
               child: Text(
                 "12 Connections follow this Page",
                 style: TextStyle(fontSize: 15, color: Colors.grey),
               ),
             ),
+          ),
 
-            //Follow Button
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: CustomButton(
-                title: "Follow",
-                onPress: (){},
-              ),
+          //Follow Button
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: CustomButton(
+              title: "Follow",
+              onPress: (){},
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
