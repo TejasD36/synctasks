@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:synctasks/widgets/custom_button.dart';
+import 'package:synctasks/widgets/custom_card.dart';
 
 class Task1 extends StatefulWidget {
   const Task1({super.key});
@@ -14,36 +16,20 @@ class _Task1State extends State<Task1> {
       appBar: AppBar(
         title: const Text("Recommendations"),
       ),
-      body: Center(
-        child: Container(
-          height: 200,
-          width: 150,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20)
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GridView.builder(
+          itemCount: 9,
+          shrinkWrap: true,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: 0.75,
           ),
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  Column(
-                    children: [
-                      Image.asset(
-                        "assets/cover.png",
-                        fit: BoxFit.fitWidth,
-                      ),
-                      const SizedBox(height: 20,),
-                    ],
-                  ),
-                  CircleAvatar(
-                    child: Image.asset(
-                      "assets/cover.png",
-                      fit: BoxFit.fitWidth,
-                    ),
-                  )
-                ],
-              ),
-            ],
-          ),
+          itemBuilder: (context, index) {
+            return const CustomCard(); // Displaying the CustomCard widget
+          },
         ),
       ),
     );
