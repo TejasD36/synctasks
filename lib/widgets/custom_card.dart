@@ -33,9 +33,9 @@ class CustomCard extends StatelessWidget {
                 ),
                 child: Image.asset(
                   coverImg,
-                  height: 120, // Adjust height based on your layout
+                  height: 120,
                   width: double.infinity,
-                  fit: BoxFit.cover, // Ensures the image covers the area
+                  fit: BoxFit.cover,
                 ),
               ),
 
