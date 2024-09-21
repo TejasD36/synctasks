@@ -20,12 +20,6 @@ const String img4 = "assets/logo4.png";
 const String img5 = "assets/logo5.png";
 const String img6 = "assets/logo6.png";
 
-//Names List
-List nameList = [generativeAI,openAI,ibm,callForReferral,amazonWebServices,appinventiv];
-
-//Images List
-List imgList = [img1,img2,img3,img4,img5,img6];
-
 //Task 2
 
 const Color headerColor = Color(0xFF451C6A);
@@ -51,6 +45,4 @@ const String history = "History";
 const String countryIcon = "assets/india.png";
 const String bankIcon = "assets/hdfc.png";
 
-const List transactionNameList = ["DEVA HOTEL","MASHA RESTAURANT","UNIVERSE MEDICO","CAFE RESTAURANT","ROHIT WADE WALE","CRAZY CHEESY"];
-const List transactionDateList = ["05 Sep 2024","05 Sep 2024","04 Sep 2024","03 Sep 2024","03 Sep 2024","02 Sep 2024"];
-const List transactionAmtList = ["₹230","₹150","₹130","₹100","₹80","₹120",];
+
